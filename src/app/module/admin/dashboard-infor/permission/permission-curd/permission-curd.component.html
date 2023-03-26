@@ -1,3 +1,33 @@
-<p>
-  permission-curd works!
-</p>
+<form #frm="ngForm" (ngSubmit)="save()">
+  <nb-card>
+    <nb-card-header class="nb-card-header">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <label *ngIf="dataRef.actionType === statusAction.create">Thêm mới {{ titlelabel }}</label>
+          <label *ngIf="dataRef.actionType === statusAction.edit">Cập nhật {{ titlelabel }}</label>
+          <label *ngIf="dataRef.actionType === statusAction.detail">Chi tiết {{ titlelabel }}</label>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <div class="form-group">
+            <label class="control-label">Phân Quyền Người Dùng</label>
+            <input type="text" class="form-control" [(ngModel)]="target.permission1" name="payment1" #payment1="ngModel"
+              maxlength="200" [disabled]="dataRef.actionType === statusAction.detail" />
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+    <nb-card-footer class="text-right">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 text-right">
+          <ngx-btn-submit [disabled]="frm.invalid"
+            *ngIf="dataRef.actionType !== statusAction.detail"></ngx-btn-submit>&nbsp;
+          <ngx-btn-close mat-dialog-close></ngx-btn-close>
+        </div>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</form>

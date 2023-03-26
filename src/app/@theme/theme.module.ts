@@ -12,6 +12,7 @@ import {
   NbSelectModule,
   NbIconModule,
   NbThemeModule,
+  NbCardModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -75,6 +76,7 @@ import { IconBarsComponent } from './components/template/icon/bars/bars.componen
 import { IconSearchPlusComponent } from './components/template/icon/search-plus/icon-search-plus.component';
 import { IconMinimizeComponent } from './components/template/icon/minimize/icon-minimize.component';
 import { IconSearchMinusComponent } from './components/template/icon/search-minus/icon-search-minus.component';
+import { DialogConfirmComponent } from './components/template/dialog/dialog-confirm/dialog-confirm.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -89,6 +91,7 @@ const NB_MODULES = [
   NbSelectModule,
   NbIconModule,
   NbEvaIconsModule,
+  NbCardModule,
 ];
 const COMPONENTS = [
   HeaderComponent,
@@ -135,6 +138,7 @@ const COMPONENTS = [
   IconSearchMinusComponent,
   IconSearchPlusComponent,
   IconMinimizeComponent,
+  DialogConfirmComponent
 ];
 const PIPES = [
   CapitalizePipe,
