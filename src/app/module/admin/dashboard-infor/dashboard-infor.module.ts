@@ -5,6 +5,7 @@ import { DashboardModule } from '../../../pages/dashboard/dashboard.module';
 import { NbCardModule } from '@nebular/theme';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PermissionModule } from './permission/permission.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { PermissionModule } from './permission/permission.module';
     DashboardModule,
     NbCardModule,
     MatDialogModule,
-    PermissionModule
+    PermissionModule,
+    UserModule
   ],
   declarations: []
 })

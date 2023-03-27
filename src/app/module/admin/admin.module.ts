@@ -18,7 +18,8 @@ import { DashboardInforModule } from './dashboard-infor/dashboard-infor.module';
     ThemeModule,
     FormsModule,
     ShowAboutModule,
-    DashboardInforModule
+    DashboardInforModule,
+    CategoryPoductModule
   ],
   declarations: []
 })

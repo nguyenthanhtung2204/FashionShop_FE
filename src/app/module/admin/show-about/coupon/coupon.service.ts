@@ -20,7 +20,7 @@ export class CouponService {
   update(id: number, body: Coupon): Observable<void>{
     return this._api.couponsPUT(id,body);
   }
-  delete(id: number, body:Coupon):Observable<void>{
+  delete(id: number):Observable<void>{
     return this._api.couponsDELETE(id);
   }
 

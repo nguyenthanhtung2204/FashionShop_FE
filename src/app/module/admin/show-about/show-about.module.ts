@@ -4,6 +4,8 @@ import { ShowAboutRoutingModule } from './show-about-routing.module';
 import { NbCardModule } from '@nebular/theme';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PaymentModule } from './payment/payment.module';
+import { NodeModule } from './node/node.module';
+import { CouponModule } from './coupon/coupon.module';
 
 
 @NgModule({
@@ -13,6 +15,8 @@ import { PaymentModule } from './payment/payment.module';
     NbCardModule,
     MatDialogModule,
     PaymentModule,
+    NodeModule,
+    CouponModule
   ]
 })
 export class ShowAboutModule { }

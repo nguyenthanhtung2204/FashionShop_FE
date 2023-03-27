@@ -70,7 +70,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Thông tin giỏ hàng',
+    title: 'Linh Tinh',
     icon: 'info-outline',
     children: [
       {

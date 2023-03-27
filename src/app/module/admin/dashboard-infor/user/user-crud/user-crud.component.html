@@ -1,3 +1,63 @@
-<p>
-  user-crud works!
-</p>
+<form #frm="ngForm" (ngSubmit)="save()">
+  <nb-card>
+    <nb-card-header class="nb-card-header">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <label *ngIf="dataRef.actionType === statusAction.create">Thêm mới {{ titlelabel }}</label>
+          <label *ngIf="dataRef.actionType === statusAction.edit">Cập nhật {{ titlelabel }}</label>
+          <label *ngIf="dataRef.actionType === statusAction.detail">Chi tiết {{ titlelabel }}</label>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <div class="form-group">
+            <label class="control-label">Tài Khoản</label>
+            <input type="text" class="form-control" [(ngModel)]="target.username" name="username" #username="ngModel"
+              maxlength="200" [disabled]="dataRef.actionType === statusAction.detail" />
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <div class="form-group">
+            <label class="control-label">Mật Khẩu</label>
+            <input type="text" class="form-control" [(ngModel)]="target.password" name="password" #password="ngModel"
+              maxlength="200" [disabled]="dataRef.actionType === statusAction.detail" />
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <div class="form-group">
+            <label class="control-label">Họ Và Tên</label>
+            <input type="text" class="form-control" [(ngModel)]="target.fullname" name="fullname" #fullname="ngModel"
+              maxlength="200" [disabled]="dataRef.actionType === statusAction.detail" />
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <div class="form-group">
+            <label class="control-label">Email</label>
+            <input type="text" class="form-control" [(ngModel)]="target.email" name="email" #email="ngModel"
+              maxlength="200" [disabled]="dataRef.actionType === statusAction.detail" />
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
+          <div class="form-group">
+            <label class="control-label">Phân Quyền</label>
+            <ng-select [items]="Permission" bindLabel="permission1" bindValue="id"
+              [(ngModel)]="target.idPermission" #idPermission="ngModel" name="idPermission"
+              [disabled]="dataRef.actionType === statusAction.detail">
+            </ng-select>
+          </div>
+      </div>
+      </div>
+    </nb-card-body>
+    <nb-card-footer class="text-right">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 text-right">
+          <ngx-btn-submit [disabled]="frm.invalid"
+            *ngIf="dataRef.actionType !== statusAction.detail"></ngx-btn-submit>&nbsp;
+          <ngx-btn-close mat-dialog-close></ngx-btn-close>
+        </div>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</form>

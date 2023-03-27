@@ -4,6 +4,7 @@ import { CategoryPoductRoutingModule } from './category-poduct-routing.module';
 import { CategoryModule } from './category/category.module';
 import { NbCardModule } from '@nebular/theme';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
   declarations: [],
@@ -13,6 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     CategoryModule,
     NbCardModule,
     MatDialogModule,
+    ProductModule
   ]
 })
 export class CategoryPoductModule { }

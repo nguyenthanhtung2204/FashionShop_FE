@@ -13,7 +13,7 @@ import { PaymentService } from '../payment.service';
 export class PaymentCrudComponent implements OnInit {
 
   constructor(
-    private CommonService: CommonService,
+    private commonService: CommonService,
     private service: PaymentService,
     @Inject(MAT_DIALOG_DATA) public dataRef:{ key: number, actionType: number },
     private dialogRef: MatDialogRef<PaymentCrudComponent>
@@ -33,7 +33,7 @@ export class PaymentCrudComponent implements OnInit {
       if(res != null){
         this.target = res 
       } else {
-        this.CommonService.toastrDanger("Không tìm thấy dữ liệu !!!");
+        this.commonService.toastrDanger("Không tìm thấy dữ liệu !!!");
         this.closeDialog(false)
       }
     })
@@ -44,20 +44,20 @@ export class PaymentCrudComponent implements OnInit {
       this.service.insert(this.target).subscribe((res) => {
         if(res === null){
           this.loadData();
-          this.CommonService.toastrSuccess(SUCCESS_NOTICE);
+          this.commonService.toastrSuccess(SUCCESS_NOTICE);
           this.closeDialog(false);
         } else {
-          this.CommonService.toastrDanger("Không thể thêm !!!");
+          this.commonService.toastrDanger("Không thể thêm !!!");
           this.closeDialog(true);
         }
       })
     } else {
       this.service.update(this.dataRef.key,this.target).subscribe((res) => {
         if(res === null){
-          this.CommonService.toastrSuccess(SUCCESS_NOTICE);
+          this.commonService.toastrSuccess(SUCCESS_NOTICE);
           this.closeDialog(false);
         } else {
-          this.CommonService.toastrDanger("Không thể cập nhật bài viết !!!");
+          this.commonService.toastrDanger("Không thể cập nhật bài viết !!!");
           this.closeDialog(true);
         }
       })

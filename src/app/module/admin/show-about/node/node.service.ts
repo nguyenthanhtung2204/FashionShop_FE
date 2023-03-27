@@ -20,7 +20,7 @@ export class NodeService {
   update(id: number, body: Node): Observable<void>{
     return this._api.nodesPUT(id,body);
   }
-  delete(id: number, body:Node):Observable<void>{
+  delete(id: number):Observable<void>{
     return this._api.nodesDELETE(id);
   }
 }

@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CouponComponent } from './coupon.component';
 import { RouterModule, Routes } from '@angular/router';
+import { CouponIndexComponent } from './coupon-index/coupon-index.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: CouponComponent  
+    component: CouponIndexComponent  
   }
 ]
 
