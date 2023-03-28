@@ -1,3 +1,42 @@
-<p>
-  favorite-crud works!
-</p>
+<form #frm="ngForm" (ngSubmit)="save()">
+  <nb-card>
+    <nb-card-header class="nb-card-header">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <label *ngIf="dataRef.actionType === statusAction.create">Thêm mới {{ titlelabel }}</label>
+          <label *ngIf="dataRef.actionType === statusAction.edit">Cập nhật {{ titlelabel }}</label>
+          <label *ngIf="dataRef.actionType === statusAction.detail">Chi tiết {{ titlelabel }}</label>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
+        <div class="form-group">
+          <label class="control-label">Tài Khoản Người Dùng</label>
+          <ng-select [items]="User" bindLabel="username" bindValue="id"
+            [(ngModel)]="target.idUser" #idUser="ngModel" name="idUser"
+            [disabled]="dataRef.actionType === statusAction.detail">
+          </ng-select>
+        </div>
+    </div>
+        <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
+          <div class="form-group">
+            <label class="control-label">Tên Sản Phẩm</label>
+            <ng-select [items]="Product" bindLabel="nameProduct" bindValue="id"
+              [(ngModel)]="target.idProduct" #idProduct="ngModel" name="idProduct"
+              [disabled]="dataRef.actionType === statusAction.detail">
+            </ng-select>
+          </div>
+        </div>
+    </nb-card-body>
+    <nb-card-footer class="text-right">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 text-right">
+          <ngx-btn-submit [disabled]="frm.invalid"
+            *ngIf="dataRef.actionType !== statusAction.detail"></ngx-btn-submit>&nbsp;
+          <ngx-btn-close mat-dialog-close></ngx-btn-close>
+        </div>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</form>
