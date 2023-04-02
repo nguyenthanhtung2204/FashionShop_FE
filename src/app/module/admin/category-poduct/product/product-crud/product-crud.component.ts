@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CommonService } from '../../../../../@core/customs/common.service';
 import { STATUS_ACTION, SUCCESS_NOTICE } from '../../../../../@core/customs/constants';
@@ -10,7 +10,7 @@ import { ProductService } from '../product.service';
   templateUrl: './product-crud.component.html',
   styleUrls: ['./product-crud.component.scss']
 })
-export class ProductCrudComponent  {
+export class ProductCrudComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
@@ -22,7 +22,7 @@ export class ProductCrudComponent  {
   statusAction = STATUS_ACTION;
   title: string = 'bài viết';
   target: Product = new Product();
-  listProduct: Object[] = []
+  listProduct: any[];
 
   ngOnInit(): void {
     if(this.dataRef.actionType !== this.statusAction.create){
@@ -32,7 +32,6 @@ export class ProductCrudComponent  {
     }
     this.service.selectAllProduct().subscribe(res => {
       this.listProduct = res;
-      console.log(res);
     })  
   }
 
@@ -40,7 +39,6 @@ export class ProductCrudComponent  {
     this.service.selectOne(this.dataRef.key).subscribe((res) => {
       if(res != null){
         this.target = res;
-        this.commonService.toastrDanger("Không tìm thấy dữ liệu !!!");
       }
     })
   }

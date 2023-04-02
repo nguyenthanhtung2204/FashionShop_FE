@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Sale, ShopDienThoai } from '../../../../@core/data/FashionShopApi.service';
+import { Product, Sale, ShopDienThoai } from '../../../../@core/data/FashionShopApi.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,10 @@ export class SaleService {
   update(id: number, body: Sale): Observable<void>{
     return this._api.salesPUT(id,body);
   }
-  delete(id: number, body:Sale):Observable<void>{
+  delete(id: number):Observable<void>{
     return this._api.salesDELETE(id);
+  }
+  selectAllProduct(): Observable<Product[]>{
+    return this._api.productsAll();
   }
 }

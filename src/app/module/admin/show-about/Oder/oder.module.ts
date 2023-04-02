@@ -4,9 +4,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NbCardModule } from '@nebular/theme';
 import { ThemeModule } from '../../../../@theme/theme.module';
 import { FormsModule } from '@angular/forms';
-import { CommentCrudComponent } from './comment-crud/comment-crud.component';
-import { CommentIndexComponent } from './comment-index/comment-index.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { OderIndexComponent } from './oder-index/oder-index.component';
+import { OderCrudComponent } from './oder-crud/oder-crud.component';
+
 
 @NgModule({
   imports: [
@@ -18,8 +19,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     NgSelectModule
   ],
   declarations: [
-    CommentCrudComponent,
-    CommentIndexComponent
+    OderIndexComponent,
+    OderCrudComponent
   ]
 })
-export class CommentModule { }
+export class OderModule { }

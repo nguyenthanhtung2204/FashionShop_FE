@@ -2,7 +2,7 @@
   <nb-card-header class="nb-card-header">
     <div class="row">
       <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
-        <h5 class="title-header" style="text-transform: uppercase;">Danh mục Loại sản phẩm</h5>
+        <h5 class="title-header" style="text-transform: uppercase;">Đặt Hàng</h5>
       </div>
     </div>
   </nb-card-header>
@@ -26,19 +26,19 @@
           <thead>
             <tr>
               <th class="text-center align-middle" style="width: 50px;">STT</th>
-              <th class="text-center align-middle" style="min-width: 100px;">Nội Dung</th>
-              <th class="text-center align-middle" style="min-width: 100px;">Đánh Giá</th>
-              <th class="text-center align-middle" style="min-width: 100px;">Tài Khoản</th>
-              <th class="text-center align-middle" style="min-width: 100px;">ID Sản Phẩm</th>
+              <th class="text-center align-middle" style="min-width: 100px;">Giá Sản Phẩm</th>
+              <th class="text-center align-middle" style="min-width: 100px;">Tên Sản Phẩm</th>
+              <th class="text-center align-middle" style="min-width: 100px;">Tên Đơn Hàng </th>
+              <th class="text-center align-middle" style="min-width: 100px;">Tên Sản Phẩm</th> 
               <th class="text-center align-middle" style="width: 150px;">Hoạt Động</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let item of target; let i = index;">
               <td>{{item.id}}</td>
-              <td>{{item.content}}</td>
-              <td>{{item.star}}</td>
-              <td>{{item.idUser}}</td>
+              <td>{{item.priceProduct}}</td>
+              <td>{{item.nameProduct}}</td>
+              <td>{{item.idOrder}}</td>
               <td>{{item.idProduct}}</td>
               <td class="text-center align-middle">
                 <ngx-icon-info title="Xem chi tiết" style="cursor: pointer;"

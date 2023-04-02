@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommentComponent } from './comment.component';
 import { RouterModule, Routes } from '@angular/router';
+import { CommentIndexComponent } from './comment-index/comment-index.component';
 
 
 export const routes: Routes =[
   {
     path: '',
-    component: CommentComponent
+    component: CommentIndexComponent
   }
 ]
 

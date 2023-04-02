@@ -6,6 +6,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PaymentModule } from './payment/payment.module';
 import { NodeModule } from './node/node.module';
 import { CouponModule } from './coupon/coupon.module';
+import { OderModule } from './Oder/oder.module';
+import { Detail_oderModule } from './detai_oder/detail_oder.module';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { CouponModule } from './coupon/coupon.module';
     MatDialogModule,
     PaymentModule,
     NodeModule,
-    CouponModule
+    CouponModule,
+    OderModule,
+    Detail_oderModule
   ]
 })
 export class ShowAboutModule { }

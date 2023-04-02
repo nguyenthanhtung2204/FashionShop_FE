@@ -1,3 +1,128 @@
-<p>
-  sale-crud works!
-</p>
+<form #frm="ngForm" (ngSubmit)="save()">
+  <nb-card>
+    <nb-card-header class="nb-card-header">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <label *ngIf="dataRef.actionType === statusAction.create"
+            >Thêm mới {{ title }}</label
+          >
+          <label *ngIf="dataRef.actionType === statusAction.edit"
+            >Cập nhật {{ title }}</label
+          >
+          <label *ngIf="dataRef.actionType === statusAction.detail"
+            >Chi tiết {{ title }}</label
+          >
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <div class="form-group">
+            <label class="control-label">Khuyến Mại</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="target.promotion"
+              name="promotion"
+              #promotion="ngModel"
+              maxlength="200"
+              [disabled]="dataRef.actionType === statusAction.detail"
+            />
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <div class="form-group">
+            <label class="control-label">Mô Tả</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="target.describe"
+              name="describe"
+              #describe="ngModel"
+              maxlength="200"
+              [disabled]="dataRef.actionType === statusAction.detail"
+            />
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <div class="form-group">
+            <label class="control-label required">Trạng thái </label>
+            <ng-select
+              name="status"
+              placeholder="-- Chọn trạng thái --"
+              [items]="ListStatus"
+              bindValue="value"
+              bindLabel="text"
+              [(ngModel)]="target.status"
+              [disabled]="dataRef.actionType === statusAction.detail"
+              required
+            >
+            </ng-select>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <div class="form-group">
+              <div class="form-group">
+                <label class="control-label required">Ngày Bắt Đầu</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  [(ngModel)]="target.start"
+                  name="start"
+                  #start="ngModel"
+                  maxlength="200"
+                  required
+                  [disabled]="dataRef.actionType === statusAction.detail"
+                />
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+            <div class="form-group">
+                <div class="form-group">
+                  <label class="control-label required">Ngày Kết Thúc</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    [(ngModel)]="target.end"
+                    name="end"
+                    #end="ngModel"
+                    maxlength="200"
+                    required
+                    [disabled]="dataRef.actionType === statusAction.detail"
+                  />
+                </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+            <div class="form-group">
+              <label class="control-label">ID Sản Phẩm</label>
+              <ng-select
+                [items]="listProduct"
+                bindLabel="nameProduct"
+                bindValue="id"
+                [(ngModel)]="target.idProduct"
+                #idProduct="ngModel"
+                name="idProduct"
+                [disabled]="dataRef.actionType === statusAction.detail"
+              >
+              </ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+    <nb-card-footer class="text-right">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 text-right">
+          <ngx-btn-submit
+            [disabled]="frm.invalid"
+            *ngIf="dataRef.actionType !== statusAction.detail"
+          ></ngx-btn-submit
+          >&nbsp;
+          <ngx-btn-close mat-dialog-close></ngx-btn-close>
+        </div>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</form>

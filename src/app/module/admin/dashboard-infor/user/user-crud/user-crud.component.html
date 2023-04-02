@@ -11,28 +11,28 @@
     </nb-card-header>
     <nb-card-body>
       <div class="row">
-        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+        <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
           <div class="form-group">
             <label class="control-label">Tài Khoản</label>
             <input type="text" class="form-control" [(ngModel)]="target.username" name="username" #username="ngModel"
               maxlength="200" [disabled]="dataRef.actionType === statusAction.detail" />
           </div>
         </div>
-        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+        <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
           <div class="form-group">
             <label class="control-label">Mật Khẩu</label>
             <input type="text" class="form-control" [(ngModel)]="target.password" name="password" #password="ngModel"
               maxlength="200" [disabled]="dataRef.actionType === statusAction.detail" />
           </div>
         </div>
-        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+        <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
           <div class="form-group">
             <label class="control-label">Họ Và Tên</label>
             <input type="text" class="form-control" [(ngModel)]="target.fullname" name="fullname" #fullname="ngModel"
               maxlength="200" [disabled]="dataRef.actionType === statusAction.detail" />
           </div>
         </div>
-        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+        <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
           <div class="form-group">
             <label class="control-label">Email</label>
             <input type="text" class="form-control" [(ngModel)]="target.email" name="email" #email="ngModel"

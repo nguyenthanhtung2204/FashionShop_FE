@@ -1,34 +1,41 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CommonService } from '../../../../../@core/customs/common.service';
+import { Detail_oderService } from '../detail_oder.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { STATUS_ACTION, SUCCESS_NOTICE } from '../../../../../@core/customs/constants';
-import { Node } from '../../../../../@core/data/FashionShopApi.service';
-import { NodeService } from '../node.service';
+import { DetailOder } from '../../../../../@core/data/FashionShopApi.service';
 
 @Component({
-  selector: 'ngx-node-crud',
-  templateUrl: './node-crud.component.html',
-  styleUrls: ['./node-crud.component.scss']
+  selector: 'ngx-detail-oder-crud',
+  templateUrl: './detail-oder-crud.component.html',
+  styleUrls: ['./detail-oder-crud.component.scss']
 })
-export class NodeCrudComponent implements OnInit {
-
+export class DetailOderCrudComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
-    private service: NodeService,
+    private service: Detail_oderService,
     @Inject(MAT_DIALOG_DATA) public dataRef:{ key: number, actionType: number },
-    private dialogRef: MatDialogRef<NodeCrudComponent>
+    private dialogRef: MatDialogRef<DetailOderCrudComponent>
   ) { }
 
   statusAction = STATUS_ACTION;
-  title: string = 'Ghi Chú';
-  target: Node = new Node();
+  title: string = 'Chi Tiết Hóa Đơn';
+  target: DetailOder = new DetailOder();
+  listOder: any[];
+  listProduct: any[];
+
 
   ngOnInit(): void {
     if(this.dataRef.actionType !== this.statusAction.create){
       this.loadData();
-  }
-  
+    }
+    this.service.selectAllOder().subscribe(res => {
+      this.listOder = res;
+    })  
+    this.service.selectAllProduct().subscribe(res => {
+      this.listProduct = res;
+    })  
   }
   loadData(): void {
     this.service.selectOne(this.dataRef.key).subscribe((res) => {

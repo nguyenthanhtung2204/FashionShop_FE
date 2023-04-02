@@ -2887,7 +2887,7 @@ export class ShopDienThoai implements IShopDienThoai {
             result200 = Product.fromJS(resultData200, _mappings);
             return _observableOf(result200);
             }));
-        } else if (status !== 200 && status !== 204) {
+        } else if (status !== 200 && status !== 204 && status !== 201) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             }));
@@ -3610,7 +3610,7 @@ export class ShopDienThoai implements IShopDienThoai {
 
 export class Category implements ICategory {
     id?: number;
-    category1?: string | undefined;
+    category?: string | undefined;
     readonly products?: Product[] | undefined;
 
     constructor(data?: ICategory) {
@@ -3632,7 +3632,7 @@ export class Category implements ICategory {
     init(_data?: any, _mappings?: any) {
         if (_data) {
             this.id = _data["id"];
-            this.category1 = _data["category1"];
+            this.category = _data["category1"];
             if (Array.isArray(_data["products"])) {
                 (<any>this).products = [] as any;
                 for (let item of _data["products"])
@@ -3649,7 +3649,7 @@ export class Category implements ICategory {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["category1"] = this.category1;
+        data["category1"] = this.category;
         if (Array.isArray(this.products)) {
             data["products"] = [];
             for (let item of this.products)
@@ -4347,7 +4347,7 @@ export class Sale implements ISale {
     status?: boolean | undefined;
     start?: Date | undefined;
     end?: Date | undefined;
-    idProduct?: number;
+    idProduct?: number | undefined;
     idProductNavigation?: Product;
 
     constructor(data?: ISale) {
@@ -4399,7 +4399,7 @@ export interface ISale {
     status?: boolean | undefined;
     start?: Date | undefined;
     end?: Date | undefined;
-    idProduct?: number;
+    idProduct?: number | undefined;
     idProductNavigation?: IProduct;
 }
 

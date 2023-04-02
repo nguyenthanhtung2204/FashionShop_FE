@@ -6,6 +6,8 @@ import { NbCardModule } from '@nebular/theme';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProductModule } from './product/product.module';
 import { FavoriteModule } from './favorite/favorite.module';
+import { CommentModule } from './comment/comment.module';
+import { SaleModule } from './sale/sale.module';
 
 @NgModule({
   declarations: [],
@@ -16,7 +18,9 @@ import { FavoriteModule } from './favorite/favorite.module';
     NbCardModule,
     MatDialogModule,
     ProductModule,
-    FavoriteModule
+    FavoriteModule,
+    CommentModule,
+    SaleModule
   ]
 })
 export class CategoryPoductModule { }

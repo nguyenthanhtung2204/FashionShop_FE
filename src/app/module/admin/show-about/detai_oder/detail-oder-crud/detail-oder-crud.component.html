@@ -1,0 +1,96 @@
+<form #frm="ngForm" (ngSubmit)="save()">
+  <nb-card>
+    <nb-card-header class="nb-card-header">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+          <label *ngIf="dataRef.actionType === statusAction.create">Thêm mới {{ title }}</label>
+          <label *ngIf="dataRef.actionType === statusAction.edit">Cập nhật {{ title }}</label>
+          <label *ngIf="dataRef.actionType === statusAction.detail">Chi tiết {{ title }}</label>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col-sm-8 col-md-8 col-xs-9 col-lg-9">
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 d-flex">
+            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+              <div class="form-group">
+                <label class="control-label">Giá Sản Phẩm</label>
+                <input type="text" class="form-control" name="priceProduct"
+                  [(ngModel)]="target.priceProduct" #priceProduct="ngModel" maxlength="200"
+                  [disabled]="dataRef.actionType === statusAction.detail" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 d-flex">
+            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+              <div class="form-group">
+                <label class="control-label">Tên Sản Phẩm</label>
+                <input type="text" class="form-control" name="nameProduct"
+                  [(ngModel)]="target.nameProduct" #nameProduct="ngModel" maxlength="200"
+                  [disabled]="dataRef.actionType === statusAction.detail" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+            <div class="form-group">
+              <label class="control-label">Số Lượng</label>
+              <input type="text" class="form-control" name="count"
+                [(ngModel)]="target.count"
+                #count="ngModel" maxlength="200"
+                [disabled]="dataRef.actionType === statusAction.detail"/>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+            <div class="form-group">
+              <label class="control-label">Kích Thước</label>
+              <input type="text" class="form-control" name="size"
+                [(ngModel)]="target.size"
+                #size="ngModel" maxlength="200"
+                [disabled]="dataRef.actionType === statusAction.detail"/>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+            <div class="form-group">
+              <label class="control-label">Đặt Hàng</label>
+              <ng-select
+                [items]="listOder"
+                bindLabel="id"
+                bindValue="id"
+                [(ngModel)]="target.id"
+                #id="ngModel"
+                name="id"
+                [disabled]="dataRef.actionType === statusAction.detail"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+            <div class="form-group">
+              <label class="control-label">Tên Sản Phẩm</label>
+              <ng-select
+                [items]="listProduct"
+                bindLabel="id"
+                bindValue="id"
+                [(ngModel)]="target.id"
+                #id="ngModel"
+                name="id"
+                [disabled]="dataRef.actionType === statusAction.detail"
+              >
+              </ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+    <nb-card-footer class="text-right">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 text-right">
+          <ngx-btn-submit [disabled]="frm.invalid"
+            *ngIf="dataRef.actionType !== statusAction.detail"></ngx-btn-submit>&nbsp;&nbsp;
+          <ngx-btn-close mat-dialog-close></ngx-btn-close>
+        </div>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</form>

@@ -1,3 +1,63 @@
-<p>
-  sale-index works!
-</p>
+<nb-card>
+  <nb-card-header class="nb-card-header">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+        <h5 class="title-header" style="text-transform: uppercase;">Danh mục Loại sản phẩm</h5>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+        <div class="input-group">
+          <ngx-btn-add data-toggle="tooltip" title="Thêm mới" (click)="openCreateDialog()"></ngx-btn-add>
+          &nbsp;
+          <input type="text" class="form-control" placeholder="Nhập nội dung tìm kiếm"
+            name="seach" (keydown.enter)="search();">&nbsp;
+          <ngx-btn-search (click)="search()"></ngx-btn-search>&nbsp;
+          <ngx-btn-refresh (click)="search()"></ngx-btn-refresh>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row" style="overflow: auto;">
+      <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th class="text-center align-middle" style="width: 50px;">STT</th>
+              <th class="text-center align-middle" style="min-width: 100px;">Khuyến Mại</th>
+              <th class="text-center align-middle" style="min-width: 100px;">Mô Tả</th>
+              <th class="text-center align-middle" style="min-width: 100px;">Trạng Thái</th>
+              <th class="text-center align-middle" style="min-width: 100px;">Ngày Bắt Đầu</th>
+              <th class="text-center align-middle" style="min-width: 100px;">Ngày Kết Thúc</th>
+              <th class="text-center align-middle" style="min-width: 100px;">ID Sản Phẩm</th>
+              <th class="text-center align-middle" style="min-width: 100px;">Hoạt Động</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of target; let i = index;">
+              <td>{{item.idSale}}</td>
+              <td>{{item.promotion}}</td>
+              <td>{{item.describe}}</td>
+              <td class="text-center">{{item.status === 1 ? "Sử dụng" : "Không sử dụng"}}</td>
+              <td class="text-center">{{item.start | date:'dd/MM/yyyy'}}</td>
+              <td class="text-center">{{item.end | date:'dd/MM/yyyy'}}</td>
+              <td>{{item.idProduct}}</td>
+              <td class="text-center align-middle">
+                <ngx-icon-info title="Xem chi tiết" style="cursor: pointer;"
+                  (click)="openDetailDialog(item.id)"></ngx-icon-info>&nbsp;&nbsp;
+                <ngx-icon-edit title="Cập nhật" style="cursor: pointer;"
+                  (click)="openEditDialog(item.id)"></ngx-icon-edit>&nbsp;&nbsp;
+                <ngx-icon-delete title="Xóa" style="cursor: pointer;"
+                  (click)="openDeleteDialog(item.id, item.category1)"></ngx-icon-delete>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+  </nb-card-footer>
+</nb-card>

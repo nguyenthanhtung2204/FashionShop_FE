@@ -1,34 +1,51 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CommonService } from '../../../../../@core/customs/common.service';
+import { OderService } from '../oder.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { STATUS_ACTION, SUCCESS_NOTICE } from '../../../../../@core/customs/constants';
-import { Node } from '../../../../../@core/data/FashionShopApi.service';
-import { NodeService } from '../node.service';
+import { Order } from '../../../../../@core/data/FashionShopApi.service';
 
 @Component({
-  selector: 'ngx-node-crud',
-  templateUrl: './node-crud.component.html',
-  styleUrls: ['./node-crud.component.scss']
+  selector: 'ngx-oder-crud',
+  templateUrl: './oder-crud.component.html',
+  styleUrls: ['./oder-crud.component.scss']
 })
-export class NodeCrudComponent implements OnInit {
-
+export class OderCrudComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
-    private service: NodeService,
+    private service: OderService,
     @Inject(MAT_DIALOG_DATA) public dataRef:{ key: number, actionType: number },
-    private dialogRef: MatDialogRef<NodeCrudComponent>
+    private dialogRef: MatDialogRef<OderCrudComponent>
   ) { }
 
   statusAction = STATUS_ACTION;
   title: string = 'Ghi Chú';
-  target: Node = new Node();
+  target: Order = new Order();
+  listCoupon: any[];
+  listUser: any[];
+  listPayment: any[];
+  listNode: any[];
 
   ngOnInit(): void {
     if(this.dataRef.actionType !== this.statusAction.create){
       this.loadData();
-  }
-  
+    }
+    this.service.selectAllcoupon().subscribe(res => {
+      this.listCoupon = res;
+    })  
+    this.service.selectAllNode().subscribe(res => {
+      this.listNode = res;
+    })  
+    this.service.selectAllPayment().subscribe(res => {
+      this.listPayment = res;
+    })  
+    this.service.selectAllcoupon().subscribe(res => {
+      this.listCoupon = res;
+    })  
+    this.service.selectAlluser().subscribe(res => {
+      this.listUser = res;
+    })  
   }
   loadData(): void {
     this.service.selectOne(this.dataRef.key).subscribe((res) => {

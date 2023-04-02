@@ -1,30 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CommonService } from '../../../../../@core/customs/common.service';
+import { Detail_oderService } from '../detail_oder.service';
+import { DetailOderCrudComponent } from '../detail-oder-crud/detail-oder-crud.component';
 import { STATUS_ACTION } from '../../../../../@core/customs/constants';
 import { DialogConfirmComponent } from '../../../../../@theme/components/template/dialog/dialog-confirm/dialog-confirm.component';
-import { ProductCrudComponent } from '../product-crud/product-crud.component';
-import { ProductService } from '../product.service';
 
 @Component({
-  selector: 'ngx-product-index',
-  templateUrl: './product-index.component.html',
-  styleUrls: ['./product-index.component.scss']
+  selector: 'ngx-detail-oder-index',
+  templateUrl: './detail-oder-index.component.html',
+  styleUrls: ['./detail-oder-index.component.scss']
 })
-export class ProductIndexComponent  {
+export class DetailOderIndexComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
     private commonService: CommonService,
-    private service: ProductService,
+    private service: Detail_oderService,
   ) { }
+
   ngOnInit(): void {
     this.loadData();
   }
   search() {
     this.loadData();
   }
-  target: any []= [];
+  target: any = {
+    data: []
+  };
 
   loadData(){
     this.service.selectAll().subscribe(res => {
@@ -33,7 +36,7 @@ export class ProductIndexComponent  {
   }
 
   openCreateDialog(){
-    this.dialog.open(ProductCrudComponent,
+    this.dialog.open(DetailOderCrudComponent,
       this.commonService.configDialog("70%",{
         key: null,
         actionType: STATUS_ACTION.create
@@ -48,7 +51,7 @@ export class ProductIndexComponent  {
   }
 
   openDetailDialog(key: number){
-    this.dialog.open(ProductCrudComponent,
+    this.dialog.open(DetailOderCrudComponent,
       this.commonService.configDialog("70%",{
         key: key,
         actionType: STATUS_ACTION.detail
@@ -58,7 +61,7 @@ export class ProductIndexComponent  {
   }
 
   openEditDialog(key: number){
-    this.dialog.open(ProductCrudComponent,
+    this.dialog.open(DetailOderCrudComponent,
       this.commonService.configDialog("70%",{
         key: key,
         actionType: STATUS_ACTION.edit
@@ -94,5 +97,4 @@ export class ProductIndexComponent  {
         }
       })
   }
-
 }

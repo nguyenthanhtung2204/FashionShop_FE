@@ -30,7 +30,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-8 col-md-8 col-xs-9 col-lg-9">
+          <div class="col-sm-8 col-md-8 col-xs-8 col-lg-8">
             <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 d-flex">
               <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
                 <div class="form-group">
@@ -42,7 +42,7 @@
               </div>
               <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
                 <div class="form-group">
-                  <label class="control-label required">Gía Sản Phẩm</label>
+                  <label class="control-label required">Giá Sản Phẩm</label>
                   <input type="text" class="form-control" name="priceProduct"
                     [(ngModel)]="target.priceProduct" #priceProduct="ngModel" maxlength="200" required
                     [disabled]="dataRef.actionType === statusAction.detail" />
@@ -50,15 +50,6 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 d-flex">
-              <!-- <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
-                <div class="form-group">
-                  <label class="control-label">Trạng thái </label>
-                  <ng-select [items]="listStatus" bindLabel="text" bindValue="value"
-                    [(ngModel)]="target.status" #status="ngModel" name="status"
-                    [disabled]="dataRef.actionType === statusAction.detail">
-                  </ng-select>
-                </div>
-              </div> -->
               <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
                 <div class="form-group">
                   <label class="control-label">Mô Tả</label>
@@ -79,15 +70,6 @@
                     [disabled]="dataRef.actionType === statusAction.detail"/>
                 </div>
               </div>
-              <!-- <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
-                <div class="form-group">
-                  <label class="control-label">Ngày tạo</label>
-                  <input type="date" class="form-control" name="createdDate"
-                    [(ngModel)]="target.createdDate"
-                    #createdDate="ngModel" maxlength="200"
-                    [disabled]="dataRef.actionType === statusAction.detail"/>
-                </div>
-              </div> -->
             </div>
             <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 d-flex">
               <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
@@ -103,8 +85,8 @@
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
                 <div class="form-group">
                   <label class="control-label">Loại Sản Phẩm</label>
-                  <ng-select [items]="listProduct" bindLabel="category1" bindValue="id"
-                    [(ngModel)]="target.idCatetoryNavigation" #idCatetoryNavigation="ngModel" name="idCatetoryNavigation"
+                  <ng-select [items]="listProduct" bindLabel="category" bindValue="id"
+                    [(ngModel)]="target.idCatetory" #idCatetory="ngModel" name="idCatetory"
                     [disabled]="dataRef.actionType === statusAction.detail">
                   </ng-select>
                 </div>

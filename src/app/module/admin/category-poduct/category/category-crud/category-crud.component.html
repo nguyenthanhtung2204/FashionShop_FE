@@ -17,18 +17,16 @@
               </div>
           </div>
         </div>
-        <div class="col-sm-8 col-md-8 col-xs-9 col-lg-9">
           <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
-            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
+            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
               <div class="form-group">
                 <label class="control-label required">Loại Sản Phẩm</label>
-                <input type="text" class="form-control" [(ngModel)]="target.category1" name="category1"
+                <input type="text" class="form-control" [(ngModel)]="target.category" name="category1"
                   #category1="ngModel" maxlength="200" required
                   [disabled]="dataRef.actionType === statusAction.detail" />
               </div>
             </div>
           </div>
-        </div>
       </div>
     </nb-card-body>
     <nb-card-footer class="text-right">

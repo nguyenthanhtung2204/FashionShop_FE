@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Comment, ShopDienThoai } from '../../../../@core/data/FashionShopApi.service';
+import { Comment, Product, ShopDienThoai, User } from '../../../../@core/data/FashionShopApi.service';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +23,11 @@ export class CommentService {
   }
   delete(id: number):Observable<void>{
     return this._api.commentsDELETE(id);
+  }
+  selectAllUser(): Observable<User[]>{
+    return this._api.usersAll();
+  }
+  selectAllProduct(): Observable<Product[]>{
+    return this._api.productsAll();
   }
 }

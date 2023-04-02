@@ -12,14 +12,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'archive-outline',
     children: [
       {
-        title: 'Giỏ Hàng',
+        title: 'Đặt Hàng',
         icon: 'shopping-cart-outline',
-        link: 'show-about/product-cart',
+        link: 'show-about/oder',
       },
       {
         title: 'Chi Tiết Hóa Đơn',
         icon: 'file-text-outline',
-        link: 'show-about/abouts',
+        link: 'show-about/detail_oder',
       },
       {
         title: 'Mã Giảm Giá',
@@ -66,32 +66,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Phản hồi sản phẩm',
         icon: 'message-circle-outline',
         link: '/pages/category-product/comment',
-      },
-    ],
-  },
-  {
-    title: 'Linh Tinh',
-    icon: 'info-outline',
-    children: [
-      {
-        title: 'Giỏ hàng',
-        icon: 'shopping-cart-outline',
-        link: '/pages/cart',
-      },
-      {
-        title: 'Chi tiết giỏ hàng',
-        icon: 'swap-outline',
-        link: '/pages/CartItem',
-      },
-      {
-        title: 'Mã giảm giá',
-        icon: 'clipboard-outline',
-        link: '/pages/coupon',
-      },
-      {
-        title: 'Thanh toán',
-        icon: 'car-outline',
-        link: '/pages/payment',
       },
     ],
   },
