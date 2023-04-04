@@ -1,18 +1,59 @@
 <form #frm="ngForm" (ngSubmit)="save()">
-  <nb-card>
-    <nb-card-header class="nb-card-header">
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
-          <label *ngIf="dataRef.actionType === statusAction.create">Thêm mới {{ title }}</label>
-          <label *ngIf="dataRef.actionType === statusAction.edit">Cập nhật {{ title }}</label>
-          <label *ngIf="dataRef.actionType === statusAction.detail">Chi tiết {{ title }}</label>
+    <nb-card>
+      <nb-card-header class="nb-card-header">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+            <label *ngIf="dataRef.actionType === statusAction.create">Thêm mới {{ title }}</label>
+            <label *ngIf="dataRef.actionType === statusAction.edit">Cập nhật {{ title }}</label>
+            <label *ngIf="dataRef.actionType === statusAction.detail">Chi tiết {{ title }}</label>
+          </div>
         </div>
-      </div>
-    </nb-card-header>
-    <nb-card-body>
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+      </nb-card-header>
+      <nb-card-body>
+        <div class="row">
           <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 d-flex">
+            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
+              <div class="form-group">
+                <label class="control-label">Địa Chỉ</label>
+                <input type="text" class="form-control" name="address"
+                  [(ngModel)]="target.address" #address="ngModel" maxlength="200"
+                  [disabled]="dataRef.actionType === statusAction.detail" />
+              </div>
+              <div class="form-group">
+                <label class="control-label">Tổng</label>
+                <input type="text" class="form-control" name="total"
+                  [(ngModel)]="target.total" #total="ngModel" maxlength="200"
+                  [disabled]="dataRef.actionType === statusAction.detail" />
+              </div>
+              <div class="form-group">
+                <label class="control-label">Trạng Thái</label>
+                <input type="text" class="form-control" name="status"
+                  [(ngModel)]="target.status"
+                  #status="ngModel" maxlength="200"
+                  [disabled]="dataRef.actionType === statusAction.detail"/>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Ngày Tạo</label>
+                <input type="text" class="form-control" name="createTime"
+                  [(ngModel)]="target.createTime"
+                  #createTime="ngModel" maxlength="200"
+                  [disabled]="dataRef.actionType === statusAction.detail"/>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Chi Trả</label>
+                <input type="text" class="form-control" name="pay"
+                  [(ngModel)]="target.pay"
+                  #pay="ngModel" maxlength="200"
+                  [disabled]="dataRef.actionType === statusAction.detail"/>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Miễn Phí Vận Chuyển</label>
+                <input type="text" class="form-control" name="freeship"
+                  [(ngModel)]="target.freeship"
+                  #freeship="ngModel" maxlength="200"
+                  [disabled]="dataRef.actionType === statusAction.detail"/>
+              </div>
+            </div>
             <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
               <div class="form-group">
                 <label class="control-label">Mã Giảm Giá</label>
@@ -27,67 +68,6 @@
                 >
                 </ng-select>
               </div>
-            </div>
-            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
-              <div class="form-group">
-                <label class="control-label">Địa Chỉ</label>
-                <input type="text" class="form-control" name="address"
-                  [(ngModel)]="target.address" #address="ngModel" maxlength="200"
-                  [disabled]="dataRef.actionType === statusAction.detail" />
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
-            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
-              <div class="form-group">
-                <label class="control-label">Tổng</label>
-                <input type="text" class="form-control" name="total"
-                  [(ngModel)]="target.total" #total="ngModel" maxlength="200"
-                  [disabled]="dataRef.actionType === statusAction.detail" />
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
-              <div class="form-group">
-                <label class="control-label">Trạng Thái</label>
-                <input type="text" class="form-control" name="status"
-                  [(ngModel)]="target.status"
-                  #status="ngModel" maxlength="200"
-                  [disabled]="dataRef.actionType === statusAction.detail"/>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
-              <div class="form-group">
-                <label class="control-label">Ngày Tạo</label>
-                <input type="text" class="form-control" name="createTime"
-                  [(ngModel)]="target.createTime"
-                  #createTime="ngModel" maxlength="200"
-                  [disabled]="dataRef.actionType === statusAction.detail"/>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 d-flex">
-            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
-              <div class="form-group">
-                <label class="control-label">Chi Trả</label>
-                <input type="text" class="form-control" name="pay"
-                  [(ngModel)]="target.pay"
-                  #pay="ngModel" maxlength="200"
-                  [disabled]="dataRef.actionType === statusAction.detail"/>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 d-flex">
-            <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
-              <div class="form-group">
-                <label class="control-label">Miễn Phí Vận Chuyển</label>
-                <input type="text" class="form-control" name="freeship"
-                  [(ngModel)]="target.freeship"
-                  #freeship="ngModel" maxlength="200"
-                  [disabled]="dataRef.actionType === statusAction.detail"/>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
             <div class="form-group">
               <label class="control-label">Tài Khoản</label>
               <ng-select
@@ -101,8 +81,6 @@
               >
               </ng-select>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
             <div class="form-group">
               <label class="control-label">Tài Khoản TT</label>
               <ng-select
@@ -116,8 +94,6 @@
               >
               </ng-select>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
             <div class="form-group">
               <label class="control-label">Nút</label>
               <ng-select
@@ -130,19 +106,20 @@
                 [disabled]="dataRef.actionType === statusAction.detail"
               >
               </ng-select>
+            </div>  
             </div>
+            
           </div>
         </div>
-      </div>
-    </nb-card-body>
-    <nb-card-footer class="text-right">
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 text-right">
-          <ngx-btn-submit [disabled]="frm.invalid"
-            *ngIf="dataRef.actionType !== statusAction.detail"></ngx-btn-submit>&nbsp;&nbsp;
-          <ngx-btn-close mat-dialog-close></ngx-btn-close>
+      </nb-card-body>
+      <nb-card-footer class="text-right">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 text-right">
+            <ngx-btn-submit [disabled]="frm.invalid"
+              *ngIf="dataRef.actionType !== statusAction.detail"></ngx-btn-submit>&nbsp;&nbsp;
+            <ngx-btn-close mat-dialog-close></ngx-btn-close>
+          </div>
         </div>
-      </div>
-    </nb-card-footer>
-  </nb-card>
+      </nb-card-footer>
+    </nb-card>
 </form>

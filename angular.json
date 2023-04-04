@@ -39,7 +39,8 @@
               "node_modules/leaflet/dist/leaflet.css",
               "src/app/@theme/styles/styles.scss",
               "src/app/@core/customs/style.css",
-              "node_modules/@ng-select/ng-select/themes/default.theme.css"
+              "node_modules/@ng-select/ng-select/themes/default.theme.css",
+              "node_modules/mdb-ui-kit/css/mdb.min.css"
             ],
             "scripts": [
               "node_modules/pace-js/pace.min.js",
@@ -50,7 +51,8 @@
               "node_modules/tinymce/plugins/table/plugin.min.js",
               "node_modules/echarts/dist/echarts.min.js",
               "node_modules/echarts/dist/extension/bmap.min.js",
-              "node_modules/chart.js/dist/Chart.min.js"
+              "node_modules/chart.js/dist/Chart.min.js",
+              "node_modules/mdb-ui-kit/js/mdb.min.js"
             ],
             "allowedCommonJsDependencies": [
               "angular2-chartjs",

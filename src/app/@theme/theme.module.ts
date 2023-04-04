@@ -77,6 +77,9 @@ import { IconSearchPlusComponent } from './components/template/icon/search-plus/
 import { IconMinimizeComponent } from './components/template/icon/minimize/icon-minimize.component';
 import { IconSearchMinusComponent } from './components/template/icon/search-minus/icon-search-minus.component';
 import { DialogConfirmComponent } from './components/template/dialog/dialog-confirm/dialog-confirm.component';
+import { Header_trangchuComponent } from './components/header_trangchu/header_trangchu.component';
+import { Footer_trangchuComponent } from './components/footer_trangchu/footer_trangchu.component';
+import { RouterModule } from '@angular/router';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -138,7 +141,9 @@ const COMPONENTS = [
   IconSearchMinusComponent,
   IconSearchPlusComponent,
   IconMinimizeComponent,
-  DialogConfirmComponent
+  DialogConfirmComponent,
+  Header_trangchuComponent,
+  Footer_trangchuComponent
 ];
 const PIPES = [
   CapitalizePipe,
@@ -149,7 +154,7 @@ const PIPES = [
 ];
 
 @NgModule({
-  imports: [CommonModule, ...NB_MODULES],
+  imports: [CommonModule, ...NB_MODULES,RouterModule],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
   declarations: [...COMPONENTS, ...PIPES],
 })

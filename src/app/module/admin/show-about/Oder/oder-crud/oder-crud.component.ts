@@ -20,7 +20,7 @@ export class OderCrudComponent implements OnInit {
   ) { }
 
   statusAction = STATUS_ACTION;
-  title: string = 'Ghi Chú';
+  title: string = 'Hóa Đơn';
   target: Order = new Order();
   listCoupon: any[];
   listUser: any[];

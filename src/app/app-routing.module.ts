@@ -7,7 +7,11 @@ export const routes: Routes = [
     loadChildren: () => import('./module/module.module')
       .then(m => m.ModuleModule),
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  {
+    path: '',
+    loadChildren: () => import('./trang-chu/trang-chu.module')
+      .then(m => m.TrangChuModule),
+  },
   { path: '**', redirectTo: 'pages' },
 ];
 

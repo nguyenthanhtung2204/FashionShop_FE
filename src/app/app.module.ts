@@ -20,6 +20,7 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { TrangChuModule } from './trang-chu/trang-chu.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,6 +40,7 @@ import {
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    TrangChuModule,
   ],
   bootstrap: [AppComponent],
 })
